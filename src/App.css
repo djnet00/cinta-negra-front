@@ -10,4 +10,5 @@ body, * {
   color: #fff;
   justify-content:  center;
   flex-direction: column;
+  font-family: Arial, sans-serif;
 }
