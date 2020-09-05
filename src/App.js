@@ -1,18 +1,22 @@
 import './App.css';
 
-import { Hola } from './components/Hola/'
-import { Container } from './components/Container/'
+import { BrowserRouter as Router, Switch } from "react-router-dom"
+import { Routes } from './Routes'
+// import { Hola } from './components/Hola/'
+import { Navbar } from './components/NavBar/'
 import React from 'react';
 
-const nombres = ['Julian','Daniel','Hector','Yasmin']
+// const nombres = ['Julian','Daniel','Hector','Yasmin']
 
 function App() {
   return (
     <div className="App">
-      {
-        nombres.map( nombre => <Hola nombre={nombre} />)
-      }
-      <Container />
+      <Router>
+        <Navbar />
+        <Switch>
+          <Routes />
+        </Switch>
+      </Router>
     </div>
   );
 }

@@ -1,0 +1,15 @@
+.navBar {
+    width: 50%;
+    margin-bottom: 50px;
+}
+
+.navBar ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #ddd;
+    text-shadow: 1px 1x 2px #fff;
+}
