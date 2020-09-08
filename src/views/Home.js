@@ -6,7 +6,7 @@ export const Home = () => {
         <div>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Inicio</title>
+                <title>Inicio Nuevo</title>
             </Helmet>
             <h1>Home</h1>
         </div>

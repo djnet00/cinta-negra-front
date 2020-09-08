@@ -1,8 +1,8 @@
 import React from 'react'
-import './index.css'
 import { Link } from 'react-router-dom'
 
-export const Navbar = () => {
+export const Navbar = (props) => {
+
     return (
         <div className="navBar">
             <ul>
