@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Helmet } from 'react-helmet'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Redirect } from 'react-router-dom'
+
+import { AuthContext } from '../contexts/AuthContext'
 
 export const Login = () => {
     const [email, setEmail] = useState('djnetswa@gmail.com')
     const [password, setPassword] = useState('12345678')
+    const [token, setToken] = useState('')
+
+    const { loginUser, user } = useContext(AuthContext)
+
+    console.log(user)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -15,7 +23,22 @@ export const Login = () => {
         const shemaCredentials = {email, password}
         
         try {
-            const response = await fetch(API_URL, {headers:{ 'Content-Type': 'application/json' }, mode:'cors', type:'json', method: 'POST', body: JSON.stringify(shemaCredentials)})
+            const response = await fetch(API_URL, {
+                headers:{ 'Content-Type': 'application/json' }, 
+                mode:'cors', type:'json', 
+                method: 'POST', 
+                body: JSON.stringify(shemaCredentials)
+            })
+
+            console.log(response)
+
+            const responseJson = await response.json()
+            
+            if( response.status === 200 ) {
+                setToken(responseJson.response)
+                await loginUser( responseJson.response )
+            }
+
         } catch (error) {
             console.error(error)
         }
@@ -38,8 +61,11 @@ export const Login = () => {
                     <Label for="password">Password</Label>
                     <Input value={password} onChange={(e)=>{ setPassword(e.target.value) }} type="password" name="password" id="password" placeholder="Ingresa tu password..." />
                 </FormGroup>
-                <Button>Submit</Button>
+                <Button>Iniciar Sesión</Button>
             </Form>
+            {
+                token && <Redirect to='/' />
+            }
         </>
     )
 }
