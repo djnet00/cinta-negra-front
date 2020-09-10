@@ -25,12 +25,12 @@ export const AuthContextProvider = (props) => {
     useEffect( () => {
         const token = localStorage.getItem('APP_TASKS_TOKEN')
 
-        if(token) {
+        if(token.length > 0) {
             const decoded = decode(token)
             setUser(decoded)
             setIsAuth(true)
         }
-    },[])
+    },[isAuth])
 
     return (
         <AuthContext.Provider value={ {isAuth, user, loginUser, logoutUser} }>

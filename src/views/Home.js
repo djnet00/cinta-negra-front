@@ -5,7 +5,7 @@ import { AuthContext } from '../contexts/AuthContext'
 
 export const Home = () => {
 
-    const { isAuth, user } = useContext(AuthContext)
+    const { isAuth } = useContext(AuthContext)
 
     if( isAuth ) {
         return (

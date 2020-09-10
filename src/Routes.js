@@ -4,6 +4,7 @@ import { Home } from './views/Home'
 import { Login } from './views/Login'
 import { Signup } from './views/Signup'
 import { Contact } from './views/Contact'
+import { Tareas } from './views/Tareas'
 
 export const Routes = () => {
     return (
@@ -11,7 +12,8 @@ export const Routes = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/contact" component={Contact} />  
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/tareas" component={Tareas} />  
         </>
     )
 }
